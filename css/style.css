@@ -1,4 +1,192 @@
 * {
   box-sizing: border-box;
-  background-color: red;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1.4px;
+}
+
+body {
+  position: relative;
+  background-color: rgb(240, 240, 240);
+}
+
+main {
+  padding: 0 25px;
+}
+
+header {
+  padding: 15px 25px;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(73, 73, 73);
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+p {
+  font-weight: 300;
+}
+
+.modal p,
+.modal .avatar {
+  margin-bottom: 10px;
+}
+
+.modal p:nth-child(-n + 2),
+.modal h2 {
+  margin-bottom: 5px;
+}
+
+hr {
+  margin: 20px 0 25px;
+}
+
+.t-gray {
+  color: #778;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(100, 100, 100, 0.4);
+}
+
+.modal {
+  width: 350px;
+  height: auto;
+  margin: 15% auto auto;
+  position: relative;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #778;
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fff;
+  height: 300px;
+  width: 250px;
+  border: 1px solid rgba(73, 73, 73, 0.322);
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 25px;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 10px;
+  margin-left: 60px;
+  margin-bottom: 25px;
+}
+
+.modal .avatar {
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.text-container {
+  word-break: break-all;
+  text-align: center;
+}
+
+.card .email,
+.card .name {
+  overflow-wrap: break-word;
+  margin-bottom: 7px;
+}
+
+/* // -------------------------------------
+// MEDIA QUERIES
+// ------------------------------------- */
+@media (min-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    grid-gap: 25px;
+    justify-items: center;
+    padding: 0;
+  }
+
+  /* SAVING THIS HERE */
+  .card {
+    display: flex;
+    background-color: #fff;
+    height: 150px;
+    width: 400px;
+    border: 1px solid rgba(73, 73, 73, 0.322);
+    border-radius: 5px;
+    padding: 10px;
+    /* margin: 10px 0; */
+  }
+  /* THIS TOO */
+  .avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: auto 0;
+  }
+  /* AND THIS */
+  .modal {
+    width: 375px;
+    height: auto;
+    margin: 15% auto auto;
+    position: relative;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #778;
+    border-radius: 5px;
+    padding: 30px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    text-align: unset;
+    margin-right: auto;
+  }
+  .grid-container {
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto;
+  }
 }
