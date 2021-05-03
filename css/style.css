@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
-  letter-spacing: 1.4px;
 }
 
 body {
@@ -17,9 +16,21 @@ header {
   padding: 15px 25px;
 }
 
+nav {
+  margin: 0 auto;
+  /* padding: 0 25px; */
+  width: 250px;
+}
+
+#searchBar {
+  width: 250px;
+  margin-bottom: 25px;
+}
+
 h1 {
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 1.3px;
   color: rgb(73, 73, 73);
   font-size: 1.5em;
   font-weight: 400;
@@ -143,40 +154,37 @@ hr {
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
-    grid-gap: 25px;
+    grid-gap: 5px;
     justify-items: center;
     padding: 0;
   }
 
   /* SAVING THIS HERE */
   .card {
-    display: flex;
-    background-color: #fff;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: left;
     height: 150px;
-    width: 400px;
-    border: 1px solid rgba(73, 73, 73, 0.322);
-    border-radius: 5px;
+    width: 350px;
     padding: 10px;
-    /* margin: 10px 0; */
+    margin: 10px 0;
   }
-  /* THIS TOO */
   .avatar {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
     margin: auto 0;
+    margin-right: 25px;
   }
-  /* AND THIS */
   .modal {
     width: 375px;
-    height: auto;
-    margin: 15% auto auto;
-    position: relative;
     text-align: center;
-    background: #fff;
-    border: 1px solid #778;
-    border-radius: 5px;
-    padding: 30px 20px;
+  }
+
+  .text-container {
+    text-align: left;
+    margin: auto 0;
+  }
+
+  .modal .text-container {
+    text-align: center;
   }
 }
 
@@ -186,7 +194,7 @@ hr {
     margin-right: auto;
   }
   .grid-container {
-    grid-template-rows: auto auto;
-    grid-template-columns: auto auto auto;
+    /* grid-template-rows: auto auto; */
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
