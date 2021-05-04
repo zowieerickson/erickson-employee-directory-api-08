@@ -8,7 +8,8 @@ const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
 const searchBar = document.querySelector("#searchBar");
 const leftArrow = document.querySelector("#left-arrow");
-const rightArrow = document.querySelector("#right-arrow");
+const suggestionsPanel = document.querySelector(".suggestions");
+
 // -------------------------------------
 // FETCH FUNCTIONS
 // -------------------------------------
@@ -19,18 +20,19 @@ fetch(urlAPI)
   .then(displayEmployees)
   .catch((err) => console.log(err));
 
+async function getEmployees() {}
+
 // -------------------------------------
 // HELPER FUNCTIONS
 // -------------------------------------
 
-// Employee Info
-
+// Employee Info ------------------------------------------------------------------------
 function displayEmployees(employeeData) {
   employees = employeeData;
 
   // store the employee HTML as it's created
   let employeeHTML = "";
-
+  const allNames = [];
   // loop through each employee and create HTML markup
   employees.forEach((employee, index) => {
     let name = employee.name;
@@ -49,11 +51,32 @@ function displayEmployees(employeeData) {
           </div>
         </div>
     `;
+
+    allNames.push(name);
   });
+  console.log(allNames);
+
+  searchBar.addEventListener("keyup", function () {
+    const input = searchBar.nodeValue;
+    const suggestions = allNames.filter(function (name) {
+      let firstAndLast = `${name.first} ${name.last}`;
+      return firstAndLast.toLowerCase().startsWith(input);
+    });
+    suggestions.forEach(function (suggested) {
+      const div = document.createElement("div");
+      div.innerHTML = suggested;
+      suggestionsPanel.appendChild(div);
+    });
+  });
+
+  // allNames.forEach((name) => {
+  //   let firstAndLast = `${name.first} ${name.last} `;
+  //   console.log(firstAndLast);
+  // });
   gridContainer.innerHTML = employeeHTML;
 }
 
-// Modal Window
+// Modal Window------------------------------------------------------------------------
 function displayModal(index) {
   //Object destructering
   let {
@@ -90,10 +113,7 @@ function displayModal(index) {
   modalContainer.innerHTML = modalHTML;
 }
 
-// Search input --------------------------------------------------------------
-searchBar.addEventListener("keyup", function () {
-  const input = searchBar.value;
-});
+// Search input -----------------------------------------------------------------------
 
 // Next modal Window ----------------------------------------------------------------
 
