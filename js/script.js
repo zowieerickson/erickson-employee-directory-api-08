@@ -1,12 +1,14 @@
 let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
+const header = document.querySelector("#main-header");
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
 const searchBar = document.querySelector("#searchBar");
-
+const leftArrow = document.querySelector("#left-arrow");
+const rightArrow = document.querySelector("#right-arrow");
 // -------------------------------------
 // FETCH FUNCTIONS
 // -------------------------------------
@@ -37,7 +39,6 @@ function displayEmployees(employeeData) {
     let picture = employee.picture;
 
     // add to HTML
-
     employeeHTML += `
     <div class="card" data-index="${index}">
           <img class="avatar" src="${picture.large}" alt="employee profile picture" />
@@ -79,11 +80,39 @@ function displayModal(index) {
     street.name
   }, ${state} ${postcode}</p>
     <p class="t-gray">Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+    <button id="left-arrow" class="arrow" onclick="prevModal(${index})"><</button>
+    <button id="right-arrow" class="arrow" onclick="nextModal(${index})">
+      >
+    </button>
   </div>
   `;
-  console.log(street);
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
+}
+
+// Search input --------------------------------------------------------------
+searchBar.addEventListener("keyup", function () {
+  const input = searchBar.value;
+});
+
+// Next modal Window ----------------------------------------------------------------
+
+function prevModal(index) {
+  let prevIndex = (index -= 1);
+  if (prevIndex > -1) {
+    displayModal(prevIndex);
+  } else {
+    displayModal(11);
+  }
+}
+
+function nextModal(index) {
+  let nextIndex = (index += 1);
+  if (nextIndex < 12) {
+    displayModal(nextIndex);
+  } else {
+    displayModal(0);
+  }
 }
 
 // -------------------------------------
@@ -104,7 +133,3 @@ gridContainer.addEventListener("click", (e) => {
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
-
-// -------------------------------------
-// POST FUNCTIONS
-// -------------------------------------
