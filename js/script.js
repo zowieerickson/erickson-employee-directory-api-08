@@ -20,8 +20,6 @@ fetch(urlAPI)
   .then(displayEmployees)
   .catch((err) => console.log(err));
 
-async function getEmployees() {}
-
 // -------------------------------------
 // HELPER FUNCTIONS
 // -------------------------------------
@@ -53,21 +51,25 @@ function displayEmployees(employeeData) {
     `;
 
     allNames.push(name);
+    const cards = document.querySelectorAll(".card");
+    // console.log(cards);
+    const names = document.querySelectorAll(".name");
+    console.log(names);
   });
-  console.log(allNames);
+  // console.log(allNames);
 
-  searchBar.addEventListener("keyup", function () {
-    const input = searchBar.nodeValue;
-    const suggestions = allNames.filter(function (name) {
-      let firstAndLast = `${name.first} ${name.last}`;
-      return firstAndLast.toLowerCase().startsWith(input);
-    });
-    suggestions.forEach(function (suggested) {
-      const div = document.createElement("div");
-      div.innerHTML = suggested;
-      suggestionsPanel.appendChild(div);
-    });
-  });
+  // searchBar.addEventListener("keyup", function () {
+  //   const input = searchBar.nodeValue;
+  //   const suggestions = allNames.filter(function (name) {
+  //     let firstAndLast = `${name.first} ${name.last}`;
+  //     return firstAndLast.toLowerCase().startsWith(input);
+  //   });
+  //   suggestions.forEach(function (suggested) {
+  //     const div = document.createElement("div");
+  //     div.innerHTML = suggested;
+  //     suggestionsPanel.appendChild(div);
+  //   });
+  // });
 
   // allNames.forEach((name) => {
   //   let firstAndLast = `${name.first} ${name.last} `;
