@@ -9,6 +9,10 @@ const modalClose = document.querySelector(".modal-close");
 const searchBar = document.querySelector("#searchBar");
 const leftArrow = document.querySelector("#left-arrow");
 const suggestionsPanel = document.querySelector(".suggestions");
+// const cards = document.querySelectorAll(".card");
+// // console.log(cards);
+// const names = document.querySelectorAll(".name");
+// console.log(names);
 
 // -------------------------------------
 // FETCH FUNCTIONS
@@ -18,6 +22,7 @@ fetch(urlAPI)
   .then((response) => response.json())
   .then((data) => data.results)
   .then(displayEmployees)
+  .then(targetCard)
   .catch((err) => console.log(err));
 
 // -------------------------------------
@@ -51,10 +56,6 @@ function displayEmployees(employeeData) {
     `;
 
     allNames.push(name);
-    const cards = document.querySelectorAll(".card");
-    // console.log(cards);
-    const names = document.querySelectorAll(".name");
-    console.log(names);
   });
   // console.log(allNames);
 
@@ -116,6 +117,14 @@ function displayModal(index) {
 }
 
 // Search input -----------------------------------------------------------------------
+function targetCard() {
+  const cards = document.querySelectorAll(".card");
+  console.log(cards);
+  const names = document.querySelectorAll(".name");
+  console.log(names);
+  let namesArray = Array.prototype.slice.call(names);
+  console.log(namesArray);
+}
 
 // Next modal Window ----------------------------------------------------------------
 
