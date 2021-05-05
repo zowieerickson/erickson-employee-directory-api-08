@@ -60,7 +60,7 @@ function displayEmployees(employeeData) {
   // console.log(allNames);
 
   // searchBar.addEventListener("keyup", function () {
-  //   const input = searchBar.nodeValue;
+  //   const input = searchBar.value;
   //   const suggestions = allNames.filter(function (name) {
   //     let firstAndLast = `${name.first} ${name.last}`;
   //     return firstAndLast.toLowerCase().startsWith(input);
@@ -118,13 +118,32 @@ function displayModal(index) {
 
 // Search input -----------------------------------------------------------------------
 function targetCard() {
-  const cards = document.querySelectorAll(".card");
-  console.log(cards);
   const names = document.querySelectorAll(".name");
-  console.log(names);
   let namesArray = Array.prototype.slice.call(names);
-  console.log(namesArray);
+  namesArray.forEach((name) => {
+    const text = name.innerHTML.toLowerCase();
+    console.log(text);
+  });
 }
+
+const handleSearch = (event) => {
+  const searchTerm = event.target.value.toLowerCase();
+
+  // Problem here
+  namesArray.forEach(function (name) {
+    const text = name.innerHTML.toLowerCase();
+    const box = name.parentElement.parentElement;
+    console.log(text);
+
+    if (text.includes(searchTerm)) {
+      box.style.display = "flex";
+    } else {
+      box.style.display = "none";
+    }
+  });
+};
+
+searchBar.addEventListener("keyup", handleSearch);
 
 // Next modal Window ----------------------------------------------------------------
 
