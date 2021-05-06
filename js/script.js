@@ -22,7 +22,6 @@ fetch(urlAPI)
   .then((response) => response.json())
   .then((data) => data.results)
   .then(displayEmployees)
-  .then(targetCard)
   .catch((err) => console.log(err));
 
 // -------------------------------------
@@ -57,25 +56,6 @@ function displayEmployees(employeeData) {
 
     allNames.push(name);
   });
-  // console.log(allNames);
-
-  // searchBar.addEventListener("keyup", function () {
-  //   const input = searchBar.value;
-  //   const suggestions = allNames.filter(function (name) {
-  //     let firstAndLast = `${name.first} ${name.last}`;
-  //     return firstAndLast.toLowerCase().startsWith(input);
-  //   });
-  //   suggestions.forEach(function (suggested) {
-  //     const div = document.createElement("div");
-  //     div.innerHTML = suggested;
-  //     suggestionsPanel.appendChild(div);
-  //   });
-  // });
-
-  // allNames.forEach((name) => {
-  //   let firstAndLast = `${name.first} ${name.last} `;
-  //   console.log(firstAndLast);
-  // });
   gridContainer.innerHTML = employeeHTML;
 }
 
@@ -117,16 +97,10 @@ function displayModal(index) {
 }
 
 // Search input -----------------------------------------------------------------------
-function targetCard() {
-  const names = document.querySelectorAll(".name");
-  let namesArray = Array.prototype.slice.call(names);
-  namesArray.forEach((name) => {
-    const text = name.innerHTML.toLowerCase();
-    console.log(text);
-  });
-}
 
 const handleSearch = (event) => {
+  const namesArray = document.querySelectorAll(".name");
+  console.log(namesArray);
   const searchTerm = event.target.value.toLowerCase();
 
   // Problem here

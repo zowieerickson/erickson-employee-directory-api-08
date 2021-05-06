@@ -14,27 +14,15 @@ main {
 
 header {
   padding: 15px 25px 5px;
-}
-
-nav {
-  margin: 0 auto;
-  /* padding: 0 25px; */
-  width: 250px;
-}
-
-.suggestions {
-  border-top: 2px solid #999;
-}
-.suggestions > div {
-  padding: 15px;
-  font-size: 20px;
-  color: #fff;
-  border-top: 1px solid #666;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #searchBar {
-  width: 250px;
+  width: 60%;
+  max-width: 280px;
+  margin: 0 auto;
   margin-bottom: 25px;
   height: 45px;
   border-radius: 20px;
@@ -48,6 +36,13 @@ nav {
 
 #searchBar:focus {
   outline: none;
+  border: 2px solid #d8ddde;
+}
+
+#searchBar::-webkit-search-cancel-button {
+  position: relative;
+  right: 20px;
+  display: none;
 }
 
 h1 {
@@ -231,11 +226,15 @@ hr {
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
     grid-gap: 5px;
+    row-gap: 25px;
     justify-items: center;
     padding: 0;
   }
 
-  /* SAVING THIS HERE */
+  #searchBar {
+    max-width: 350px;
+  }
+
   .card {
     flex-wrap: nowrap;
     flex-direction: row;
@@ -270,12 +269,24 @@ hr {
 }
 
 @media (min-width: 1024px) {
-  h1 {
-    text-align: unset;
-    margin-right: auto;
-  }
   .grid-container {
     /* grid-template-rows: auto auto; */
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  h1 {
+    text-align: unset;
+    /* display: inline; */
+    margin-right: auto;
+    margin-left: calc(100% / 30);
+  }
+  #searchBar {
+    margin: 0;
+    margin-top: 11px;
+    margin-right: calc(100% / 90);
+    /* margin-left: auto; */
   }
 }
