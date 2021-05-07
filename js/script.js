@@ -53,8 +53,6 @@ function displayEmployees(employeeData) {
           </div>
         </div>
     `;
-
-    allNames.push(name);
   });
   gridContainer.innerHTML = employeeHTML;
 }
@@ -77,7 +75,7 @@ function displayModal(index) {
   <img
   class="avatar" src="${picture.large}" alt="employee profile picture"/>
   <div class="text-container">
-    <h2 class="name">${name.first} ${name.last}</h2>
+    <h2 class="modalName">${name.first} ${name.last}</h2>
     <p class="email t-gray">${email}</p>
     <p class="address t-gray">${city}</p>
     <hr class="t-gray" />
