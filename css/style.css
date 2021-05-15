@@ -3,6 +3,10 @@
   font-family: "Lato", sans-serif;
 }
 
+html {
+  /* background-color: ; */
+}
+
 body {
   position: relative;
   background-color: rgb(240, 240, 240);
@@ -10,6 +14,8 @@ body {
 
 main {
   padding: 0 25px;
+  margin-top: 35px;
+  padding-bottom: 55px;
 }
 
 header {
@@ -17,6 +23,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #333;
 }
 
 #searchBar {
@@ -36,7 +43,6 @@ header {
 
 #searchBar:focus {
   outline: none;
-  border: 2px solid #d8ddde;
 }
 
 #searchBar::-webkit-search-cancel-button {
@@ -49,9 +55,10 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1.3px;
-  color: rgb(73, 73, 73);
+  color: #fff;
   font-size: 1.5em;
   font-weight: 400;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -92,19 +99,25 @@ hr {
   right: 0;
   bottom: 0;
   background: rgba(100, 100, 100, 0.4);
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .modal {
   width: 350px;
   height: auto;
   margin: 15% auto auto;
-  position: relative;
+  /* position: relative; */
   text-align: center;
   background: #fff;
   border: 1px solid #778;
   border-radius: 5px;
   padding: 30px 20px;
+
+  position: fixed;
+  top: 150px;
+  left: 100px;
+  right: 100px;
 }
 
 .modal-close {
@@ -277,17 +290,20 @@ hr {
   header {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 55px;
+    padding-bottom: 55px;
   }
   h1 {
     text-align: unset;
     /* display: inline; */
-    margin-right: auto;
+    /* margin-right: auto; */
     margin-left: calc(100% / 30);
   }
   #searchBar {
-    margin: 0;
+    margin-left: auto;
     margin-top: 11px;
-    margin-right: calc(100% / 90);
+    margin-right: 55px;
     /* margin-left: auto; */
   }
 }
