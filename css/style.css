@@ -97,14 +97,14 @@ hr {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   background: rgba(100, 100, 100, 0.4);
+  min-height: 100vh;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 .modal {
-  width: 350px;
+  width: 300px;
   height: auto;
   margin: 15% auto auto;
   /* position: relative; */
@@ -115,9 +115,9 @@ hr {
   padding: 30px 20px;
 
   position: fixed;
-  top: 150px;
-  left: 100px;
-  right: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .modal-close {

@@ -98,14 +98,12 @@ function displayModal(index) {
 
 const handleSearch = (event) => {
   const namesArray = document.querySelectorAll(".name");
-  console.log(namesArray);
   const searchTerm = event.target.value.toLowerCase();
 
   // Problem here
   namesArray.forEach(function (name) {
     const text = name.innerHTML.toLowerCase();
     const box = name.parentElement.parentElement;
-    console.log(text);
 
     if (text.includes(searchTerm)) {
       box.style.display = "flex";
